@@ -1,0 +1,31 @@
+{
+    "config": {
+        "main-stack-size": {
+            "value": 8192
+        }
+    },
+    "macros": [
+        "MBEDTLS_MPI_MAX_SIZE=1024",
+        "MBEDTLS_MPI_WINDOW_SIZE=1",
+        "MBEDTLS_USER_CONFIG_FILE=\"mbedtls_entropy_config.h\"",
+        "MBEDTLS_TEST_NULL_ENTROPY",
+        "MBEDTLS_NO_DEFAULT_ENTROPY_SOURCES",
+        "MBED_HEAP_STATS_ENABLED=1"
+    ],
+    "target_overrides": {
+        "*": {
+            "platform.stdio-baud-rate": 115200,
+            "platform.stdio-convert-newlines": true,
+            "mbed-mesh-api.6lowpan-nd-channel-page": 0,
+            "mbed-mesh-api.6lowpan-nd-channel": 12,
+            "mbed-trace.enable": null,
+            "mbed-http.http-buffer-size": 2048,
+            "nsapi.default-wifi-security": "WPA_WPA2",
+            "nsapi.default-wifi-ssid": "\"SSID\"",
+            "nsapi.default-wifi-password": "\"Password\""
+        },
+        "DISCO_L475VG_IOT01A": {
+            "target.network-default-interface-type" : "WIFI"
+        }
+    }
+}
